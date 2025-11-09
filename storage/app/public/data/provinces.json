@@ -1,0 +1,93 @@
+[
+    {
+        "id": "3",
+        "name": "TERMINAL",
+        "alt_name": "TERMINAL",
+        "latitude": 6.1745,
+        "longitude": 106.8227
+    },
+    {
+        "id": "4",
+        "name": "PELABUHAN",
+        "alt_name": "PELABUHAN",
+        "latitude": 6.1745,
+        "longitude": 106.8227
+    },
+    {
+        "id": "5",
+        "name": "BANDARA",
+        "alt_name": "BANDARA",
+        "latitude": 6.1745,
+        "longitude": 106.8227
+    },
+    {
+        "id": "11",
+        "name": "ACEH",
+        "alt_name": "ACEH",
+        "latitude": 4.36855,
+        "longitude": 97.0253
+    },
+    {
+        "id": "12",
+        "name": "SUMATERA UTARA",
+        "alt_name": "SUMATERA UTARA",
+        "latitude": 2.19235,
+        "longitude": 99.38122
+    },
+    {
+        "id": "13",
+        "name": "SUMATERA BARAT",
+        "alt_name": "SUMATERA BARAT",
+        "latitude": -1.34225,
+        "longitude": 100.0761
+    },
+    {
+        "id": "14",
+        "name": "RIAU",
+        "alt_name": "RIAU",
+        "latitude": 0.50041,
+        "longitude": 101.54758
+    },
+    {
+        "id": "15",
+        "name": "JAMBI",
+        "alt_name": "JAMBI",
+        "latitude": -1.61157,
+        "longitude": 102.7797
+    },
+    {
+        "id": "16",
+        "name": "SUMATERA SELATAN",
+        "alt_name": "SUMATERA SELATAN",
+        "latitude": -3.12668,
+        "longitude": 104.09306
+    },
+    {
+        "id": "17",
+        "name": "BENGKULU",
+        "alt_name": "BENGKULU",
+        "latitude": -3.51868,
+        "longitude": 102.53598
+    },
+    {
+        "id": "18",
+        "name": "LAMPUNG",
+        "alt_name": "LAMPUNG",
+        "latitude": -4.8555,
+        "longitude": 105.0273
+    },
+    {
+        "id": "19",
+        "name": "KEPULAUAN BANGKA BELITUNG",
+        "alt_name": "KEPULAUAN BANGKA BELITUNG",
+        "latitude": -2.75775,
+        "longitude": 107.58394
+    },
+    {
+        "id": "21",
+        "name": "KEPULAUAN RIAU",
+        "alt_name": "KEPULAUAN RIAU",
+        "latitude": -0.15478,
+        "longitude": 104.58037
+    }
+]

@@ -1,0 +1,44 @@
+<IfModule mod_rewrite.c>
+
+    # Cache HTML files for 31536000 seconds (1 year)
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+
+    # Cache CSS, JS, dan gambar untuk 31536000 detik (1 year)
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|woff2|woff|ttf)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+
+    # Redirect dari www ke non-www
+    # RewriteCond %{HTTP_HOST} ^www\.cvidolatebowisata\.com [NC]
+    # RewriteRule ^(.*)$ https://cvidolatebowisata.com/$1 [L,R=301]
+
+    # # Redirect dari HTTP ke HTTPS
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://cvidolatebowisata.com/$1 [L,R=301]
+
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Handle X-XSRF-Token Header
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
