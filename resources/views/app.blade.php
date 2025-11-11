@@ -107,9 +107,9 @@
                 ]),
                 'offers' => collect([
                     '@type' => 'AggregateOffer',
-                    'offerCount' => 4,
-                    'lowPrice' => 100000,
-                    'highPrice' => 300000,
+                    'offerCount' => 6,
+                    'lowPrice' => $productSchema['offers']['lowPrice'],
+                    'highPrice' => $productSchema['offers']['highPrice'],
                     'priceCurrency' => 'IDR',
                 ]),
                 'review' => [
@@ -138,7 +138,7 @@
                 'aggregateRating' => [
                     '@type' => 'AggregateRating',
                     'ratingValue' => 5,
-                    'reviewCount' => 4,
+                    'reviewCount' => 6,
                     'bestRating' => 5,
                 ],
             ]);
@@ -167,25 +167,27 @@
     @livewireScripts
 
 
-    {{-- <script>
-        const headings = document.querySelectorAll(':is(h2,h3)');
 
-        console.log(headings)
+    @if (env('APP_ENV') == 'local')
+        <script>
+            const headings = document.querySelectorAll(':is(h2,h3)');
 
-        let heading = ''
-        headings.forEach(element => {
-            heading += element.tagName.toLowerCase() + ' ' + element.textContent + '<br>'
-        });
+            let heading = ''
+            headings.forEach(element => {
+                heading += element.tagName.toLowerCase() + ' ' + element.textContent + '\n'
+            });
 
-        document.body.innerHTML = heading
-    </script> --}}
+            console.log(heading);
+        </script>
 
-    <script>
-        let content = document.querySelector('main article #detail')
-        if (content) {
-            console.log(content.innerText.trim().split(/\s+/).filter(Boolean).length);
-        }
-    </script>
+        <script>
+            let content = document.querySelector('main article #detail')
+            if (content) {
+                console.log("words: " + content.innerText.trim().split(/\s+/).filter(Boolean).length);
+            }
+        </script>
+    @endif
+
 </body>
 
 </html>

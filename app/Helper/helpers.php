@@ -107,8 +107,8 @@ if (! function_exists('web')) {
         $data = [
             "title" => env('APP_NAME'),
             "tagline" => "Jadwalkan travel anda bersama " . env('APP_NAME'),
-            "transparentLogo" => asset('images/general/travel-sumatra.gif'),
-            "defaultLogo" => asset('images/general/travel-sumatra.jpg'),
+            "transparentLogo" => asset('images/general/logo.png'),
+            "defaultLogo" => asset('images/general/logo.png'),
         ];
 
         return (object) $data;

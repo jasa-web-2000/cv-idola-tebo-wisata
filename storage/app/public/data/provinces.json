@@ -1,8 +1,15 @@
 [
     {
-        "id": "3",
+        "id": "2",
         "name": "TERMINAL",
         "alt_name": "TERMINAL",
+        "latitude": 6.1745,
+        "longitude": 106.8227
+    },
+    {
+        "id": "3",
+        "name": "STASIUN",
+        "alt_name": "STASIUN",
         "latitude": 6.1745,
         "longitude": 106.8227
     },

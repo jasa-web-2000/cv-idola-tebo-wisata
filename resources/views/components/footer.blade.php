@@ -26,7 +26,7 @@
     <div class="hero-gradient"></div>
     <div class="relative my-container">
         <div
-            class="py-12 grid gap-8 sm:gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-12 [&_h3]:mb-3 [&_h3]:text-text-title-white [&_.footerList]:flex [&_.footerList]:flex-col [&_.footerList]:gap-y-2 [&_:is(p,_.footerList_a)]:text-text-description-white [&_.footerList_a]:hover:text-primary/80 [&_.footerList_a]:flex [&_.footerList_a]:items-center [&_.footerList_a]:gap-1.5 [&_.footerList_a_svg]:shrink-0">
+            class="py-12 grid gap-8 sm:gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-12 [&_p]:mb-3 [&_p]:text-text-title-white [&_.footerList]:flex [&_.footerList]:flex-col [&_.footerList]:gap-y-2 [&_:is(p,_.footerList_a)]:text-text-description-white [&_.footerList_a]:hover:text-primary/80 [&_.footerList_a]:flex [&_.footerList_a]:items-center [&_.footerList_a]:gap-1.5 [&_.footerList_a_svg]:shrink-0">
 
 
 
@@ -41,7 +41,7 @@
 
             <!-- Laman -->
             <div class="sm:col-span-1 md:col-span-2">
-                <h3 class="light">Laman</h3>
+                <p class="light text-xl! font-black">Laman</p>
                 <div class="footerList">
                     @foreach (menu() as $item)
                         <a class="{{ $item[0] == request()->url() ? '!text-primary/95' : '' }} "
@@ -60,7 +60,7 @@
 
             <!-- Kontak -->
             <div class="sm:col-span-1 md:col-span-4">
-                <h3 class="light">Kontak</h3>
+                <p class="light text-xl! font-black">Kontak</p>
                 <a target="_blank" rel="nofollow noindex"
                     class="animate-bounce bg-gradient-to-bl hover:from-green-600 hover:to-green-800 from-green-700 to-green-900 rounded-full fixed right-5 bottom-5 p-3 shadow z-[999] hover:rotate-12 duration-300"
                     href={{ whatsapp() }} title="whatsapp">
@@ -89,7 +89,7 @@
         </div>
         <div class="text-center text-sm text-slate-300 border-t border-slate-700 py-5">
             <p>
-                Copyright © since Oct 2025 - {{ date('M Y') }} |
+                Copyright © since Oct 2020 - {{ date('M Y') }} |
                 {{ web()->title }}.
             </p>
             <p>

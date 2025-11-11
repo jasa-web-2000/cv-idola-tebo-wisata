@@ -11,12 +11,12 @@
     </FilesMatch>
 
     # Redirect dari www ke non-www
-    # RewriteCond %{HTTP_HOST} ^www\.cvidolatebowisata\.com [NC]
-    # RewriteRule ^(.*)$ https://cvidolatebowisata.com/$1 [L,R=301]
+    RewriteCond %{HTTP_HOST} ^www\.cvidolatebowisata\.com [NC]
+    RewriteRule ^(.*)$ https://cvidolatebowisata.com/$1 [L,R=301]
 
     # # Redirect dari HTTP ke HTTPS
-    # RewriteCond %{HTTPS} off
-    # RewriteRule ^(.*)$ https://cvidolatebowisata.com/$1 [L,R=301]
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://cvidolatebowisata.com/$1 [L,R=301]
 
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes

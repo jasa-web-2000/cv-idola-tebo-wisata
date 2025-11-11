@@ -36,6 +36,11 @@ class SingleTravelController extends Controller
             abort(404);
         }
 
+        if (request()->routeIs('travel.show.thumbnail')) {
+            $thumbnail = new ThumbnailController;
+            return $thumbnail(['Travel', Str::title($origin->name), Str::title($destination->name)]);
+        }
+
         if ($origin->id != $originId || $destinationId != $destination->id) {
             return redirect()->route('travel.show', [
                 'originName' => Str::slug($origin->name),
@@ -46,27 +51,21 @@ class SingleTravelController extends Controller
         }
 
         $recomendation = collect([
-            ...province()->random(2),
-            ...regency()->random(5),
+            ...province()->random(4),
+            ...regency()->random(6),
             ...district()->random(4)
         ]);
 
 
+
+        $thumbnailUrl = route('travel.show.thumbnail', [
+            'originName' => Str::slug($origin->name),
+            'destinationName' => Str::slug($destination->name),
+            'originId' => $origin->id,
+            'destinationId' => $destination->id,
+        ]);
+
         $travel = "Travel " . Str::title($origin->name) . " " . Str::title($destination->name);
-
-        if (request()->routeIs('travel.show.thumbnail')) {
-            $thumbnail = new ThumbnailController;
-            return $thumbnail(['Travel', Str::title($origin->name), Str::title($destination->name)]);
-        }
-
-        $thumbnailUrl = route('travel.show.thumbnail', compact(
-            'originName',
-            'originId',
-            'destinationName',
-            'destinationId'
-        ));
-
-        // return $this->productSchema($origin, $destination)['rating'];
 
         return view('pages.travel.single', [
             'page' => $travel,
@@ -74,29 +73,27 @@ class SingleTravelController extends Controller
             'description' => "$travel hari ini dengan sistem door to door, PP, harga murah, jadwal 24 jam, via tol, dan bonus makan",
             'origin' => $origin,
             'destination' => $destination,
-            'recomendation' => $recomendation->whereNotIn('id', [$originId, $destinationId])->take(9),
+            'recomendation' => $recomendation->whereNotIn('id', [$originId, $destinationId])->shuffle()->take(11),
             'thumbnail' => [
                 'url' => $thumbnailUrl,
                 'width' => 1600,
                 'height' => 900,
                 'alt' => $travel,
             ],
-            'productSchema' => $this->productSchema($origin, $destination, $travel),
+            'productSchema' => $this->productSchema($travel),
         ]);
     }
 
-    public function productSchema($origin, $destination, $title)
+    /**
+     * @param string $title
+     */
+    public function productSchema($title = "Travel")
     {
         return [
             'offers' => [
-                // 'offerCount' => 4,
                 'lowPrice' => 100000,
-                'highPrice' => 250000,
+                'highPrice' => 299000,
             ],
-            // 'rating' => [
-            //     'ratingValue' => date('Y') % 2 == 0 ? 4.6 : 4.7,
-            //     'reviewCount' => 4,
-            // ],
             'reviewBody' => 'Pelayanan ' . $title . ' sangat rekomendasi. Admin menerima pesanan pada tengah malam dan driver sangat ramah. Perjalanan travel sangat nyaman, ber-ac, dan cepat via tol penuh.',
         ];
     }
