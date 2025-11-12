@@ -18,7 +18,7 @@ if (! function_exists('phoneNumber')) {
     function phoneNumber(?string $phoneNumber = null, bool $link = false)
     {
         // $resultPhoneNumber = $phoneNumber ?? validationPhoneNumber();
-        $resultPhoneNumber = $phoneNumber ?? '+62 813-7466-1216';
+        $resultPhoneNumber = $phoneNumber ?? '+62 822-8922-3939';
 
         return $link ? str_replace(['-', '+', ' '], '', $resultPhoneNumber) : $resultPhoneNumber;
     }
