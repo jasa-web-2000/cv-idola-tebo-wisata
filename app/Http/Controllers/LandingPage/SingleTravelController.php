@@ -47,7 +47,7 @@ class SingleTravelController extends Controller
                 'destinationName' => Str::slug($destination->name),
                 'originId' => $origin->id,
                 'destinationId' => $destination->id,
-            ]);
+            ], 301);
         }
 
         $recomendation = collect([
